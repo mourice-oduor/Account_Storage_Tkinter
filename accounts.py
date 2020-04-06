@@ -16,7 +16,7 @@ class popupWindow(object):
     def __init__(self, master):
         top = self.top = Toplevel(master)
         top.title('Input Password')
-        top.geometry('{}x{}'.format(250, 100))
+        top.geometry('{}x{}'.format(300, 100))
         top.resizable(width=False, height=False)
         self.l = Label(top, text=" Password: ", font=('times', 16, 'bold'), fg="#b51253",bg="green",justify=CENTER)
         self.l.pack()
@@ -42,10 +42,10 @@ class popupWindow(object):
 
 class entity_add:
 
-    def __init__(self, master, n, p, e):
-        self.password = p
-        self.name = n
-        self.email = e
+    def __init__(self, master, name, passwd, email):
+        self.password = passwd
+        self.name = name
+        self.email = email
         self.window = master
 
     def write(self):
