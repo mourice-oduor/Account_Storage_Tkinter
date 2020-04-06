@@ -16,7 +16,7 @@ class popupWindow(object):
     def __init__(self, master):
         top = self.top = Toplevel(master)
         top.title('Input Password')
-        top.geometry('{}x{}'.format(300, 100))
+        top.geometry('{}x{}'.format(250, 100))
         top.resizable(width=False, height=False)
         self.l = Label(top, text=" Password: ", font=('times', 16, 'bold'), fg="#b51253",bg="green",justify=CENTER)
         self.l.pack()
@@ -42,10 +42,10 @@ class popupWindow(object):
 
 class entity_add:
 
-    def __init__(self, master, name, passwd, email):
-        self.password = passwd
-        self.name = name
-        self.email = email
+    def __init__(self, master, n, p, e):
+        self.password = p
+        self.name = n
+        self.email = e
         self.window = master
 
     def write(self):
@@ -109,9 +109,9 @@ class entity_display:
             else:
                 dencryptedP += chr(ord(letter) - 5)
 
-        self.label_name = Label(self.window, text=dencryptedN, font=('Courier', 14))
-        self.label_email = Label(self.window, text=dencryptedE, font=('Courier', 14))
-        self.label_pass = Label(self.window, text=dencryptedP, font=('Courier', 14))
+        self.label_name = Label(self.window, text=dencryptedN, font=('times', 14))
+        self.label_email = Label(self.window, text=dencryptedE, font=('times', 14))
+        self.label_pass = Label(self.window, text=dencryptedP, font=('times', 14))
         self.deleteButton = Button(self.window, text='X', fg='red', command=self.delete)
 
     def display(self):
@@ -182,32 +182,31 @@ def readfile():
 
 m = popupWindow(root)
 
-entity_label = Label(root, text='Add Entity', font=('Courier', 18))
-name_label = Label(root, text='Name: ', font=('Courier', 14))
-email_label = Label(root, text='Email: ', font=('Courier', 14))
-pass_label = Label(root, text='Password: ', font=('Courier', 14))
-name = Entry(root, font=('Courier', 14))
-email = Entry(root, font=('Courier', 14))
-password = Entry(root, show='*', font=('Courier', 14))
-submit = Button(root, text='Add Email', command=onsubmit, font=('Courier', 14))
-
+entity_label = Label(root, text='Add Entity', font=('times', 18))
 entity_label.grid(columnspan=3, row=0)
+name_label = Label(root, text='Name: ', font=('times', 16))
 name_label.grid(row=1, sticky=E, padx=3)
+email_label = Label(root, text='Email: ', font=('times', 16))
 email_label.grid(row=2, sticky=E, padx=3)
+pass_label = Label(root, text='Password: ', font=('times', 16))
 pass_label.grid(row=3, sticky=E, padx=3)
 
-name.grid(columnspan=3, row=1, column=1, padx=2, pady=2, sticky=W)
-email.grid(columnspan=3, row=2, column=1, padx=2, pady=2, sticky=W)
-password.grid(columnspan=3, row=3, column=1, padx=2, pady=2, sticky=W)
 
+name = Entry(root, font=('times', 16))
+name.grid(columnspan=3, row=1, column=1, padx=2, pady=2, sticky=W)
+email = Entry(root, font=('times', 16))
+email.grid(columnspan=3, row=2, column=1, padx=2, pady=2, sticky=W)
+password = Entry(root, show='*', font=('times', 16))
+password.grid(columnspan=3, row=3, column=1, padx=2, pady=2, sticky=W)
+submit = Button(root, text='Add Email', command=onsubmit, font=('times', 16))
 submit.grid(columnspan=3, pady=4)
 
-name_label2 = Label(root, text='Name: ', font=('Courier', 14))
-email_label2 = Label(root, text='Email: ', font=('Courier', 14))
-pass_label2 = Label(root, text='Password: ', font=('Courier', 14))
 
+name_label2 = Label(root, text='Name: ', font=('times', 16))
 name_label2.grid(row=5)
+email_label2 = Label(root, text='Email: ', font=('times', 16))
 email_label2.grid(row=5, column=1)
+pass_label2 = Label(root, text='Password: ', font=('times', 16))
 pass_label2.grid(row=5, column=2)
 
 readfile()
