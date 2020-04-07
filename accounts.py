@@ -1,12 +1,27 @@
 from tkinter import *
 from tkinter import messagebox
 import tkinter.messagebox
+import tkinter as tk
 
 objects = []
 root = Tk()
 root.withdraw()
 root.title('Account_Storage_Details')
 root.geometry("700x500")
+
+# background_image=tk.PhotoImage("image1.png")
+# background_label = tk.Label(root, image=background_image)
+# background_label.place(x=-1, y=0, relwidth=1, relheight=1)
+
+
+# photo = PhotoImage(file = "image1.png")
+# w = Label(root, image=photo)
+# w.grid()
+# ent = Entry(root)
+# ent.grid()
+# ent.focus_set()
+
+root.configure(background = "#5c0640")
 
 class popupWindow(object):
 
@@ -17,6 +32,7 @@ class popupWindow(object):
         top = self.top = Toplevel(master)
         top.title('Input Password')
         top.geometry('{}x{}'.format(250, 100))
+        top.configure(background="#3e065c")
         top.resizable(width=False, height=False)
         self.l = Label(top, text=" Password: ", font=('times', 16, 'bold'), fg="#b51253",bg="green",justify=CENTER)
         self.l.pack()
